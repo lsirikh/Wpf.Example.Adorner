@@ -3,7 +3,7 @@
 
 <hr>
 
-### Update Date: 2023/03/27  
+git ### Update Date: 2023/03/27  
 * Project : Wpf.Example.Adorner  
 * Version : v1.0.0  
 * 기능:  
