@@ -19,3 +19,9 @@
   3) Canvas 상에서 이동을 위한 Control을 구성한다. 추가적인 Adorner가 될 수 있다.  
 
 <hr>
+
+### Update Date: 2023/03/28  
+* Project : Wpf.Example.OnCanvas.Adorner    
+* Version : v1.0.0  
+* 기능:  
+  1) 미완성된 adorner 컨트롤을 추가적으로 구현한다.  
