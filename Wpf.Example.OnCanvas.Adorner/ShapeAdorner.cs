@@ -120,7 +120,6 @@ namespace Wpf.Example.OnCanvas.Adorner
             // AdornedElement를 FrameworkElement로 캐스팅합니다.
             FrameworkElement adornedElement = this.AdornedElement as FrameworkElement;
 
-            double height = adornedElement.ActualHeight;
             double top = Canvas.GetTop(adornedElement);
             double left = Canvas.GetLeft(adornedElement);
 
@@ -128,8 +127,8 @@ namespace Wpf.Example.OnCanvas.Adorner
             if (adornedElement != null)
             {
                 // FrameworkElement의 ActualWidth 및 ActualHeight 속성을 사용하여 너비와 높이를 조정합니다.
-                adornedElement.Height = adornedElement.Height - e.VerticalChange < 0 ? 0 : adornedElement.Height - e.VerticalChange;
-                adornedElement.Width = adornedElement.Width - e.HorizontalChange < 0 ? 0 : adornedElement.Width - e.HorizontalChange;
+                adornedElement.Height = adornedElement.Height - e.VerticalChange < MIN_SIZE ? MIN_SIZE : adornedElement.Height - e.VerticalChange;
+                adornedElement.Width = adornedElement.Width - e.HorizontalChange < MIN_SIZE ? MIN_SIZE : adornedElement.Width - e.HorizontalChange;
 
                 Canvas.SetTop(adornedElement, top + e.VerticalChange);
                 Canvas.SetLeft(adornedElement, left + e.HorizontalChange);
@@ -141,11 +140,15 @@ namespace Wpf.Example.OnCanvas.Adorner
             // AdornedElement를 FrameworkElement로 캐스팅합니다.
             FrameworkElement adornedElement = this.AdornedElement as FrameworkElement;
 
+            double left = Canvas.GetLeft(adornedElement);
+
             // FrameworkElement가 null이 아닌 경우
             if (adornedElement != null)
             {
                 // FrameworkElement의 ActualWidth 및 ActualHeight 속성을 사용하여 너비와 높이를 조정합니다.
-                adornedElement.Width = adornedElement.Width - e.HorizontalChange < 0 ? 0 : adornedElement.Width - e.HorizontalChange;
+                adornedElement.Width = adornedElement.Width - e.HorizontalChange < MIN_SIZE ? MIN_SIZE : adornedElement.Width - e.HorizontalChange;
+
+                Canvas.SetLeft(adornedElement, left + e.HorizontalChange);
             }
         }
 
@@ -154,12 +157,16 @@ namespace Wpf.Example.OnCanvas.Adorner
             // AdornedElement를 FrameworkElement로 캐스팅합니다.
             FrameworkElement adornedElement = this.AdornedElement as FrameworkElement;
 
+            double left = Canvas.GetLeft(adornedElement);
+
             // FrameworkElement가 null이 아닌 경우
             if (adornedElement != null)
             {
                 // FrameworkElement의 ActualWidth 및 ActualHeight 속성을 사용하여 너비와 높이를 조정합니다.
-                adornedElement.Height = adornedElement.Height + e.VerticalChange < 0 ? 0 : adornedElement.Height + e.VerticalChange;
-                adornedElement.Width = adornedElement.Width - e.HorizontalChange < 0 ? 0 : adornedElement.Width - e.HorizontalChange;
+                adornedElement.Height = adornedElement.Height + e.VerticalChange < MIN_SIZE ? MIN_SIZE : adornedElement.Height + e.VerticalChange;
+                adornedElement.Width = adornedElement.Width - e.HorizontalChange < MIN_SIZE ? MIN_SIZE : adornedElement.Width - e.HorizontalChange;
+
+                Canvas.SetLeft(adornedElement, left + e.HorizontalChange);
             }
         }
 
@@ -168,12 +175,16 @@ namespace Wpf.Example.OnCanvas.Adorner
             // AdornedElement를 FrameworkElement로 캐스팅합니다.
             FrameworkElement adornedElement = this.AdornedElement as FrameworkElement;
 
+            double top = Canvas.GetTop(adornedElement);
+
             // FrameworkElement가 null이 아닌 경우
             if (adornedElement != null)
             {
                 // FrameworkElement의 ActualWidth 및 ActualHeight 속성을 사용하여 너비와 높이를 조정합니다.
-                adornedElement.Height = adornedElement.Height - e.VerticalChange < 0 ? 0 : adornedElement.Height - e.VerticalChange;
-                adornedElement.Width = adornedElement.Width + e.HorizontalChange < 0 ? 0 : adornedElement.Width + e.HorizontalChange;
+                adornedElement.Height = adornedElement.Height - e.VerticalChange < MIN_SIZE ? MIN_SIZE : adornedElement.Height - e.VerticalChange;
+                adornedElement.Width = adornedElement.Width + e.HorizontalChange < MIN_SIZE ? MIN_SIZE : adornedElement.Width + e.HorizontalChange;
+
+                Canvas.SetTop(adornedElement, top + e.VerticalChange);
             }
         }
 
@@ -185,8 +196,7 @@ namespace Wpf.Example.OnCanvas.Adorner
             // FrameworkElement가 null이 아닌 경우
             if (adornedElement != null)
             {
-
-                adornedElement.Width = adornedElement.Width + e.HorizontalChange < 0 ? 0 : adornedElement.Width + e.HorizontalChange;
+                adornedElement.Width = adornedElement.Width + e.HorizontalChange < MIN_SIZE ? MIN_SIZE : adornedElement.Width + e.HorizontalChange;
             }
         }
 
@@ -200,8 +210,8 @@ namespace Wpf.Example.OnCanvas.Adorner
             if (adornedElement != null)
             {
                 // FrameworkElement의 ActualWidth 및 ActualHeight 속성을 사용하여 너비와 높이를 조정합니다.
-                adornedElement.Height = adornedElement.Height + e.VerticalChange < 0 ? 0 : adornedElement.Height + e.VerticalChange;
-                adornedElement.Width = adornedElement.Width + e.HorizontalChange < 0 ? 0 : adornedElement.Width + e.HorizontalChange;
+                adornedElement.Height = adornedElement.Height + e.VerticalChange < MIN_SIZE ? MIN_SIZE : adornedElement.Height + e.VerticalChange;
+                adornedElement.Width = adornedElement.Width + e.HorizontalChange < MIN_SIZE ? MIN_SIZE : adornedElement.Width + e.HorizontalChange;
             }
         }
 
@@ -210,12 +220,15 @@ namespace Wpf.Example.OnCanvas.Adorner
             // AdornedElement를 FrameworkElement로 캐스팅합니다.
             FrameworkElement adornedElement = this.AdornedElement as FrameworkElement;
 
+            double top = Canvas.GetTop(adornedElement);
+
             // FrameworkElement가 null이 아닌 경우
             if (adornedElement != null)
             {
                 // FrameworkElement의 ActualWidth 및 ActualHeight 속성을 사용하여 너비와 높이를 조정합니다.
-                adornedElement.Height = adornedElement.Height - e.VerticalChange < 0 ? 0 : adornedElement.Height - e.VerticalChange;
+                adornedElement.Height = adornedElement.Height - e.VerticalChange < MIN_SIZE ? MIN_SIZE : adornedElement.Height - e.VerticalChange;
 
+                Canvas.SetTop(adornedElement, top + e.VerticalChange);
             }
         }
 
@@ -228,7 +241,7 @@ namespace Wpf.Example.OnCanvas.Adorner
             if (adornedElement != null)
             {
                 // FrameworkElement의 ActualWidth 및 ActualHeight 속성을 사용하여 너비와 높이를 조정합니다.
-                adornedElement.Height = adornedElement.Height + e.VerticalChange < 0 ? 0 : adornedElement.Height + e.VerticalChange;
+                adornedElement.Height = adornedElement.Height + e.VerticalChange < MIN_SIZE ? MIN_SIZE : adornedElement.Height + e.VerticalChange;
 
             }
         }
@@ -274,6 +287,7 @@ namespace Wpf.Example.OnCanvas.Adorner
 
         //Const Element
         const double RECT_MARGIN = 2.5;
+        const double MIN_SIZE = 2;
         #endregion
 
     }
