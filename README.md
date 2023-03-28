@@ -27,4 +27,11 @@
 * Version : v1.0.0  
 * 기능:  
   1) 미완성된 adorner 컨트롤을 추가적으로 구현한다.  
-  2) 
+   
+
+* Project : Wpf.Example.OnCavas.RotateAdorner    
+* Version : v1.0.0  
+* 기능:  
+  1) 불완전하지만, Circle Adorner element를 이용하여, Canvas 상의 Rectangle 요소를 회전 시킬 수 있다.  
+  2) 회전과 함께 Adorner element는 회전 동기가 되지만, 사용자의 요구에 맞게 회전 각도가 변경이 안된다. 이 부분은 삼각함수를 이용해서 각도계산이 필요할 것으로 보인다. 마우스 이동에 따른 회전 각도 계산을 위한 로직 구현이 필요하다. 현재 일부 요소가 적용되었지만, 완벽하지 않은 부분을 감안해서 수정작업이 필요하다.  
+  3)   

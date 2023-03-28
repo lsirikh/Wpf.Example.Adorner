@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wpf.Example.Adorner", "Wpf.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wpf.Example.OnCanvas.Adorner", "Wpf.Example.OnCanvas.Adorner\Wpf.Example.OnCanvas.Adorner.csproj", "{8D14C6F2-7A40-4374-909C-D6AB579112F5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wpf.Example.OnCavas.RotateAdorner", "Wpf.Example.OnCavas.RotateAdorner\Wpf.Example.OnCavas.RotateAdorner.csproj", "{AF481FB7-11B3-4455-8B47-3220FF2C6240}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{8D14C6F2-7A40-4374-909C-D6AB579112F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8D14C6F2-7A40-4374-909C-D6AB579112F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8D14C6F2-7A40-4374-909C-D6AB579112F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF481FB7-11B3-4455-8B47-3220FF2C6240}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF481FB7-11B3-4455-8B47-3220FF2C6240}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF481FB7-11B3-4455-8B47-3220FF2C6240}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF481FB7-11B3-4455-8B47-3220FF2C6240}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
