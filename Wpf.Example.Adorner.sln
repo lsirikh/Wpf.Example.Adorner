@@ -5,6 +5,12 @@ VisualStudioVersion = 17.3.32825.248
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wpf.Example.Adorner", "Wpf.Example.Adorner\Wpf.Example.Adorner.csproj", "{8D93E8BB-3F2A-4B7C-B8AA-4BFC3EE12344}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wpf.Example.OnCanvas.Adorner", "Wpf.Example.OnCanvas.Adorner\Wpf.Example.OnCanvas.Adorner.csproj", "{8D14C6F2-7A40-4374-909C-D6AB579112F5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wpf.Example.OnCavas.RotateAdorner", "Wpf.Example.OnCavas.RotateAdorner\Wpf.Example.OnCavas.RotateAdorner.csproj", "{AF481FB7-11B3-4455-8B47-3220FF2C6240}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wpf.Example.SampleAdorner", "Wpf.Example.SampleAdorner\Wpf.Example.SampleAdorner.csproj", "{154F1B55-4D54-45C1-A566-FF3B6AB4601F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +21,18 @@ Global
 		{8D93E8BB-3F2A-4B7C-B8AA-4BFC3EE12344}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8D93E8BB-3F2A-4B7C-B8AA-4BFC3EE12344}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8D93E8BB-3F2A-4B7C-B8AA-4BFC3EE12344}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D14C6F2-7A40-4374-909C-D6AB579112F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D14C6F2-7A40-4374-909C-D6AB579112F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D14C6F2-7A40-4374-909C-D6AB579112F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D14C6F2-7A40-4374-909C-D6AB579112F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF481FB7-11B3-4455-8B47-3220FF2C6240}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF481FB7-11B3-4455-8B47-3220FF2C6240}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF481FB7-11B3-4455-8B47-3220FF2C6240}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF481FB7-11B3-4455-8B47-3220FF2C6240}.Release|Any CPU.Build.0 = Release|Any CPU
+		{154F1B55-4D54-45C1-A566-FF3B6AB4601F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{154F1B55-4D54-45C1-A566-FF3B6AB4601F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{154F1B55-4D54-45C1-A566-FF3B6AB4601F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{154F1B55-4D54-45C1-A566-FF3B6AB4601F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
