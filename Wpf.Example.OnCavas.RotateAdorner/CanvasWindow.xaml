@@ -1,0 +1,17 @@
+﻿<Window x:Class="Wpf.Example.OnCavas.RotateAdorner.CanvasWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Wpf.Example.OnCavas.RotateAdorner"
+        mc:Ignorable="d"
+        Title="CanvasWindow" Height="450" Width="800">
+	<Grid>
+		<Grid>
+			<!-- Canvas를 추가하고 Rectangle을 배치합니다. -->
+			<Canvas x:Name="myCanvas" Background="LightGray" MouseLeftButtonUp="MyCanvas_MouseLeftButtonUp">
+				<Rectangle x:Name="myRectangle" Width="100" Height="100" Fill="DodgerBlue" Canvas.Left="100" Canvas.Top="100"/>
+			</Canvas>
+		</Grid>
+	</Grid>
+</Window>

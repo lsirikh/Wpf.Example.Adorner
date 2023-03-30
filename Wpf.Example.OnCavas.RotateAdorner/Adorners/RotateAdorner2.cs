@@ -5,7 +5,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Shapes;
 
-namespace Wpf.Example.OnCavas.RotateAdorner
+namespace Wpf.Example.OnCavas.RotateAdorner.Adorners
 {
     /****************************************************************************
         Purpose      :                                                           
