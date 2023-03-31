@@ -46,3 +46,15 @@
   2) 하지만 컴포넌트를 외부로 빼냈다는 것은 재사용할 수 있는 모듈로 설계를 했다는 것이기 때문에 추후 설계되는 SW에 쉽게 이용할 수 있게 되었다.  
   3) 현재 구성한 기능은 Move, Resize, Rotate로 구현하고자 했던 모든 기능을 담고 있다.  
   4) 현재 Basic Function을 모두 수행하지만 GIS 시스템에서 적용될 수 있도록 좀 더 업데이트가 필요하다.  
+
+<hr>
+
+### Update Date: 2023/03/31  
+  
+* Project : Wpf.Example.FullyFunctionedAdorner      
+* Version : v1.0.0  
+* 기능:  
+  1) MVVM Pattern Based Fully Functioned Adorner element를 완성하였다.  
+  2) 해당 Adorner를 활용하면 Shape의 기본적인 외형을 수정할 수 있다. 사이즈 변경, 회전, 이동 등 다양하게 수정이 가능하다.  
+  3) 적절하게 요소를 분리해놨기 때문에 다양한 프로젝트에 임포트할 수 있다.아직 라이브러리 형태는 아니지만, 수정구현 할 예정이다.  
+  4) 
