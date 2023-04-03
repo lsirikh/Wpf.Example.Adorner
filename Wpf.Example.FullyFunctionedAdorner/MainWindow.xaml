@@ -37,8 +37,8 @@
 			<ContentControl Width="100"
 							Height="100"
 							Padding="1"
-							Canvas.Left="600"
-							Canvas.Top="300"
+							Canvas.Left="300"
+							Canvas.Top="100"
 							Style="{StaticResource DesignerItemStyle}">
 				<Ellipse IsHitTestVisible="False">
 					<Shape.Fill>

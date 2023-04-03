@@ -57,4 +57,12 @@
   1) MVVM Pattern Based Fully Functioned Adorner element를 완성하였다.  
   2) 해당 Adorner를 활용하면 Shape의 기본적인 외형을 수정할 수 있다. 사이즈 변경, 회전, 이동 등 다양하게 수정이 가능하다.  
   3) 적절하게 요소를 분리해놨기 때문에 다양한 프로젝트에 임포트할 수 있다.아직 라이브러리 형태는 아니지만, 수정구현 할 예정이다.  
-  4) 
+
+<hr>
+
+### Update Date: 2023/04/04  
+  
+* Project : Wpf.Example.FullyFunctionedAdorner      
+* Version : v1.0.0  
+* 기능:  
+  1) 활성화 및 비활성화에 따른 기능 이상 Bug Fix  
