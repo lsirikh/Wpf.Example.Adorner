@@ -60,10 +60,10 @@ namespace Wpf.Example.FullyFunctionedAdorner.Thumbs
                         this.adorner.Visibility = Visibility.Collapsed;
                     }
                 }
-                else
-                {
-                    this.adorner.Visibility = Visibility.Visible;
-                }
+            }
+            else
+            {
+                this.adorner.Visibility = Visibility.Visible;
             }
         }
 

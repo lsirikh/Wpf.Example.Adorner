@@ -19,7 +19,9 @@
 			<Setter.Value>
 				<ControlTemplate TargetType="ContentControl">
 					<Grid DataContext="{Binding RelativeSource={RelativeSource TemplatedParent}}">
-						<thumbs:MoveThumb Cursor="SizeAll" Template="{StaticResource MoveThumbTemplate}"/>
+						<thumbs:MoveThumb Cursor="SizeAll" Template="{StaticResource MoveThumbTemplate}"
+										  x:Name="MoveDecorator"
+										  Visibility="Collapsed"/>
 						<ContentControl Content="{TemplateBinding ContentControl.Content}"
 										Margin="{TemplateBinding Padding}"/>
 						<thumbs:DesignerItemDecorator x:Name="ItemDecorator"/>
@@ -27,6 +29,12 @@
 					<ControlTemplate.Triggers>
 						<Trigger Property="Selector.IsSelected" Value="True">
 							<Setter TargetName="ItemDecorator" Property="ShowDecorator" Value="True"/>
+							<Setter TargetName="MoveDecorator" Property="Visibility" Value="Visible"/>
+							
+						</Trigger>
+						<Trigger Property="Selector.IsSelected" Value="False">
+							<Setter TargetName="ItemDecorator" Property="ShowDecorator" Value="False"/>
+							<Setter TargetName="MoveDecorator" Property="Visibility" Value="Collapsed"/>
 						</Trigger>
 					</ControlTemplate.Triggers>
 				</ControlTemplate>
