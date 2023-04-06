@@ -13,6 +13,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wpf.Example.SampleAdorner",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wpf.Example.FullyFunctionedAdorner", "Wpf.Example.FullyFunctionedAdorner\Wpf.Example.FullyFunctionedAdorner.csproj", "{F755DE12-4F82-44EC-B333-34A2EE29AC94}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wpf.Libraries.AdornerDecorator", "..\Wpf.Libraries\Wpf.Libraries.AdornerDecorator\Wpf.Libraries.AdornerDecorator.csproj", "{433735EC-A957-4465-BE8F-283565A5EF98}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wpf.AdornerProject.Sample", "Wpf.AdornerProject.Sample\Wpf.AdornerProject.Sample.csproj", "{6031DE05-40DD-49F8-93EA-EEAF37F0C6B1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +43,14 @@ Global
 		{F755DE12-4F82-44EC-B333-34A2EE29AC94}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F755DE12-4F82-44EC-B333-34A2EE29AC94}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F755DE12-4F82-44EC-B333-34A2EE29AC94}.Release|Any CPU.Build.0 = Release|Any CPU
+		{433735EC-A957-4465-BE8F-283565A5EF98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{433735EC-A957-4465-BE8F-283565A5EF98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{433735EC-A957-4465-BE8F-283565A5EF98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{433735EC-A957-4465-BE8F-283565A5EF98}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6031DE05-40DD-49F8-93EA-EEAF37F0C6B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6031DE05-40DD-49F8-93EA-EEAF37F0C6B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6031DE05-40DD-49F8-93EA-EEAF37F0C6B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6031DE05-40DD-49F8-93EA-EEAF37F0C6B1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

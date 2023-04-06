@@ -66,3 +66,20 @@
 * Version : v1.0.0  
 * 기능:  
   1) 활성화 및 비활성화에 따른 기능 이상 Bug Fix  
+   
+<hr>
+
+### Update Date: 2023/04/05  
+  
+* Project : Wpf.AdornerProject.Sample      
+* Version : v1.0.0  
+* 기능:  
+  1) Basic Project 구성 With Adorner  
+  2) 최소 기능 프로덕트 형태 MVP로 GIS를 제외한 상태에서 온전히 Symbole Oriented Function을 검증하는 프로젝트이다.  
+  3) 구현 형태 MVVM 패턴 적용  
+  4) Caliburn.Micro 적용  
+  5) Material Design Theme 적용  
+  6) CustomControl를 활용한 Symbol 커스텀 적용  
+  7) ItemsControl을 활용한 다중 심볼 제어 적용  
+  8) Menu Option을 활용한 개별 심볼 제어 적용  
+  9) Shape Property 개념 적용 및 모델 구성  
