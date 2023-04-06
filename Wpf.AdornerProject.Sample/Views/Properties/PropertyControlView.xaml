@@ -1,0 +1,166 @@
+﻿<UserControl x:Class="Wpf.AdornerProject.Sample.Views.Properties.PropertyControlView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Wpf.AdornerProject.Sample.Views.Properties"
+			 xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+			 d:Background="White"
+             d:DesignHeight="450" d:DesignWidth="300">
+	<UserControl.Resources>
+		<Style x:Name="PropertyStyleForTextBlock" TargetType="{x:Type TextBlock}" BasedOn="{StaticResource MaterialDesignBody1TextBlock}">
+			<Setter Property="VerticalAlignment" Value="Center"/>
+			<Setter Property="TextAlignment" Value="Left"/>
+			<Setter Property="FontWeight" Value="Bold"/>
+			<Setter Property="Margin" Value="5 0"/>
+		</Style>
+		<Style x:Name="PropertyStyleForTextBox" TargetType="{x:Type TextBox}" BasedOn="{StaticResource MaterialDesignFilledTextBox}">
+			<Setter Property="VerticalAlignment" Value="Center"/>
+			<Setter Property="TextAlignment" Value="Center"/>
+			<Setter Property="Padding" Value="0"/>
+		</Style>
+	</UserControl.Resources>
+	<StackPanel Visibility="{Binding IsEnable, Converter={StaticResource BooleanToVisibilityConverter}}"
+				ScrollViewer.HorizontalScrollBarVisibility="Auto"
+				Width="300">
+		<Rectangle Height="1" Fill="Gray" Margin="0,5"/>
+		<TextBlock Text="Properties"
+					FontSize="15"
+					FontWeight="Bold"
+					TextAlignment="Center"/>
+		
+		<Rectangle Height="1" Fill="Gray" Margin="0,5"/>
+		
+		<Grid Margin="5"
+				  VerticalAlignment="Center">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="2*"/>
+				<ColumnDefinition Width="3*"/>
+			</Grid.ColumnDefinitions>
+			<TextBlock Grid.Column="0" Text="Id" VerticalAlignment="Center" />
+			<TextBox Grid.Column="1" Text="{Binding Model.Id, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+					 />
+		</Grid>
+		
+		<Grid Margin="5"
+				  VerticalAlignment="Center">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="2*"/>
+				<ColumnDefinition Width="3*"/>
+			</Grid.ColumnDefinitions>
+			<TextBlock Grid.Column="0" Text="Width" />
+			<TextBox Grid.Column="1" Text="{Binding Model.Width, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+		</Grid>
+		<Grid Margin="5" 
+				  VerticalAlignment="Center">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="2*"/>
+				<ColumnDefinition Width="3*"/>
+			</Grid.ColumnDefinitions>
+			<TextBlock Grid.Column="0" Text="Height" />
+			<TextBox Grid.Column="1" Text="{Binding Model.Height, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+		</Grid>
+		<Grid Margin="5" 
+				  VerticalAlignment="Center">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="2*"/>
+				<ColumnDefinition Width="3*"/>
+			</Grid.ColumnDefinitions>
+			<TextBlock Grid.Column="0" Text="X" />
+			<TextBox Grid.Column="1" Text="{Binding Model.X, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+		</Grid>
+		<Grid Margin="5" 
+				  VerticalAlignment="Center">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="2*"/>
+				<ColumnDefinition Width="3*"/>
+			</Grid.ColumnDefinitions>
+			<TextBlock Grid.Column="0" Text="Y" />
+			<TextBox Grid.Column="1" Text="{Binding Model.Y, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+		</Grid>
+		<Grid Margin="5" 
+				  VerticalAlignment="Center">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="2*"/>
+				<ColumnDefinition Width="3*"/>
+			</Grid.ColumnDefinitions>
+			<TextBlock Grid.Column="0" Text="Angle" />
+			<TextBox Grid.Column="1" Text="{Binding Model.Angle, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+		</Grid>
+		<Grid Margin="5" 
+				  VerticalAlignment="Center">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="2*"/>
+				<ColumnDefinition Width="3*"/>
+			</Grid.ColumnDefinitions>
+			<TextBlock Grid.Column="0" Text="Shape Color" />
+			<ComboBox Grid.Column="1" 
+					  SelectedItem="{Binding Model.Fill, Mode=TwoWay}">
+				<ComboBox.ItemTemplate>
+					<DataTemplate>
+						<Rectangle Width="30" Height="10" Margin="2" Stroke="Black" Fill="{Binding }"/>
+					</DataTemplate>
+				</ComboBox.ItemTemplate>
+				<ComboBox.ItemsSource>
+					<x:Array Type="{x:Type SolidColorBrush}">
+						<SolidColorBrush>Red</SolidColorBrush>
+						<SolidColorBrush>Green</SolidColorBrush>
+						<SolidColorBrush>Blue</SolidColorBrush>
+						<SolidColorBrush>Yellow</SolidColorBrush>
+						<SolidColorBrush>Orange</SolidColorBrush>
+						<SolidColorBrush>Purple</SolidColorBrush>
+					</x:Array>
+				</ComboBox.ItemsSource>
+			</ComboBox>
+		</Grid>
+		<Grid Margin="5" 
+				  VerticalAlignment="Center">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="2*"/>
+				<ColumnDefinition Width="3*"/>
+			</Grid.ColumnDefinitions>
+			<TextBlock Grid.Column="0" Text="LableWidth" />
+			<TextBox Grid.Column="1" Text="{Binding Model.LableWidth, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+		</Grid>
+		<Grid Margin="5" 
+				  VerticalAlignment="Center">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="2*"/>
+				<ColumnDefinition Width="3*"/>
+			</Grid.ColumnDefinitions>
+			<TextBlock Grid.Column="0" Text="LableHeight" />
+			<TextBox Grid.Column="1" Text="{Binding Model.LableHeight, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+		</Grid>
+		<Grid Margin="5" 
+				  VerticalAlignment="Center">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="2*"/>
+				<ColumnDefinition Width="3*"/>
+			</Grid.ColumnDefinitions>
+			<TextBlock Grid.Column="0" Text="Lable" />
+			<TextBox Grid.Column="1" Text="{Binding Model.Lable, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+		</Grid>
+		<Grid Margin="5" 
+				  VerticalAlignment="Center">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="2*"/>
+				<ColumnDefinition Width="3*"/>
+			</Grid.ColumnDefinitions>
+			<TextBlock Grid.Column="0" Text="FontSize" />
+			<TextBox Grid.Column="1" Text="{Binding Model.FontSize, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+		</Grid>
+		<Grid Margin="5" 
+				  VerticalAlignment="Center">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="2*"/>
+				<ColumnDefinition Width="3*"/>
+			</Grid.ColumnDefinitions>
+			<TextBlock Grid.Column="0" Text="Show Lable" />
+			<CheckBox Grid.Column="1" 
+					  VerticalAlignment="Center" 
+					  HorizontalAlignment="Center"
+					  IsChecked="{Binding Model.IsShowLable, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+		</Grid>
+	</StackPanel>
+</UserControl>

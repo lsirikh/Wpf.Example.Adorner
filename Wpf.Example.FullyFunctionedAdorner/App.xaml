@@ -4,7 +4,7 @@
              xmlns:local="clr-namespace:Wpf.Example.FullyFunctionedAdorner"
              StartupUri="MainWindow.xaml">
 	<Application.Resources>
-		<DrawingBrush x:Key="MyGridBrushResource"
+		<!--<DrawingBrush x:Key="MyGridBrushResource"
 					   Viewport="0,0,20,20"
 					   ViewportUnits="Absolute"
 					   TileMode="Tile">
@@ -28,7 +28,7 @@
 		<LinearGradientBrush x:Key="FrameBackground" StartPoint="0,0" EndPoint="0,1">
 			<GradientStop Offset="1.0" Color="SlateGray"/>
 			<GradientStop Offset="0.0" Color="LightSlateGray"/>
-		</LinearGradientBrush>
+		</LinearGradientBrush>-->
 
 
 		
