@@ -1,55 +1,53 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Globalization;
+using System.Windows;
 using System.Windows.Data;
+using System.Windows.Media;
 
 namespace Wpf.AdornerProject.Sample.Utils
 {
     /****************************************************************************
         Purpose      :                                                           
         Created By   : GHLee                                                
-        Created On   : 4/5/2023 1:47:09 PM                                                    
+        Created On   : 4/7/2023 11:17:37 AM                                                    
         Department   : SW Team                                                   
         Company      : Sensorway Co., Ltd.                                       
         Email        : lsirikh@naver.com                                         
      ****************************************************************************/
 
-    public class ShapeSizeWithLableConverter : IMultiValueConverter
+    public class StringToColorConverter : IValueConverter
     {
 
         #region - Ctors -
+
         #endregion
         #region - Implementation of Interface -
-        public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            double shapeSize = 0d;
-            
-            if (parameter.ToString() == "Width")
+            if (value is string colorString)
             {
-                double totalSize = (double)values[0];
-
-                shapeSize = totalSize  - MARGIN;
-                Debug.WriteLine($"Width : {shapeSize}({totalSize} - {MARGIN})");
-                return shapeSize;
-            }
-            else if(parameter.ToString() == "Height")
-            {
-                double totalSize = (double)values[0];
-                double elementSize = (double)values[1];
-
-                shapeSize = totalSize - elementSize - MARGIN;
-                Debug.WriteLine($"Height : {shapeSize}({totalSize} - {elementSize} - {MARGIN})");
-                return shapeSize;
+                try
+                {
+                    return (Color)ColorConverter.ConvertFromString(colorString);
+                }
+                catch
+                {
+                    return DependencyProperty.UnsetValue;
+                }
             }
             else
             {
-                return shapeSize;
+                return (Color)ColorConverter.ConvertFromString("#FFFF0000");
             }
         }
 
-        public object[] ConvertBack(object value, Type[] targetTypes, object parameter, CultureInfo culture)
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            throw new NotImplementedException();
+            if (value is Color color)
+            {
+                return color.ToString();
+            }
+            return DependencyProperty.UnsetValue;
         }
         #endregion
         #region - Overrides -
@@ -63,7 +61,6 @@ namespace Wpf.AdornerProject.Sample.Utils
         #region - Properties -
         #endregion
         #region - Attributes -
-        private const double MARGIN = 5.0;
         #endregion
 
     }

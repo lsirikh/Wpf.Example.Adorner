@@ -13,6 +13,7 @@
 
 	<utils:ShapeSizeConverter x:Key="ShapeSizeConverter" />
 	<utils:ShapeSizeWithLableConverter x:Key="ShapeSizeWithLableConverter" />
+	<utils:StringToColorConverter x:Key="StringToColorConverter"/>
 
 
 	<ControlTemplate x:Key="MoveThumbTemplate" TargetType="{x:Type thumbs:MoveThumb}">

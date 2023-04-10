@@ -22,15 +22,11 @@ namespace Wpf.AdornerProject.Sample.ViewModels.Elements
         Email        : lsirikh@naver.com                                         
      ****************************************************************************/
 
-    public class CircleEntityViewModel : ShapeBaseViewModel
+    public class CircleShapeViewModel : ShapeViewModel
     {
 
         #region - Ctors -
-        public CircleEntityViewModel()
-        {
-        }
-
-        public CircleEntityViewModel(PropertyModel model)
+        public CircleShapeViewModel(PropertyModel model)
         {
             _model = model;
             _eventAggregator = IoC.Get<IEventAggregator>();
@@ -39,38 +35,16 @@ namespace Wpf.AdornerProject.Sample.ViewModels.Elements
         #region - Implementation of Interface -
         #endregion
         #region - Overrides -
-        protected override void OnViewAttached(object view, object context)
-        {
-            base.OnViewAttached(view, context);
-        }
         #endregion
         #region - Binding Methods -
         #endregion
         #region - Processes -
-        public async void OnClickEdit(object sender, RoutedEventArgs args)
-        {
-            var vm = IoC.Get<PropertyControlViewModel>();
-            vm.InsertModel(this);
-            IsEditable = true;
-
-            await _eventAggregator.PublishOnUIThreadAsync(new EditShapeMessage(IsEditable, this));
-        }
-
-        public async void OnClickExit(object sender, RoutedEventArgs args)
-        {
-            var vm = IoC.Get<PropertyControlViewModel>();
-            vm.ClearModel();
-            IsEditable = false;
-
-            await _eventAggregator.PublishOnUIThreadAsync(new EditShapeMessage(IsEditable, this));
-        }
         #endregion
         #region - IHanldes -
         #endregion
         #region - Properties -
         #endregion
         #region - Attributes -
-        private IEventAggregator _eventAggregator;
         #endregion
     }
 }

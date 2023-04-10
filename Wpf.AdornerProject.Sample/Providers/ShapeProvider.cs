@@ -14,11 +14,11 @@ namespace Wpf.AdornerProject.Sample.Providers
         Email        : lsirikh@naver.com                                         
      ****************************************************************************/
 
-    public class CircleShapeProvider : EntityCollectionProvider<CircleEntityViewModel>
+    public class ShapeProvider : EntityCollectionProvider<IShapeViewModel>
     {
 
         #region - Ctors -
-        public CircleShapeProvider()
+        public ShapeProvider()
         {
            
         }

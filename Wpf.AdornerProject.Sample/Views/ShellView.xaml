@@ -16,11 +16,16 @@
 			<ResourceDictionary.MergedDictionaries>
 				<ResourceDictionary Source="pack://application:,,,/Wpf.Libraries.AdornerDecorator;component/Resources/DesignerItem.xaml" />
 			</ResourceDictionary.MergedDictionaries>
+			
+			<Style x:Key="TrayButtonStyle" TargetType="Button" BasedOn="{StaticResource MaterialDesignFlatButton}">
+				<Setter Property="Padding"	Value="5 0"/>
+				<Setter Property="Margin"	Value="5 0"/>
+			</Style>
 		</ResourceDictionary>
 	</Window.Resources>
-	<Grid>
+	<Grid md:ThemeAssist.Theme="Inherit">
 		<Grid.RowDefinitions>
-			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="47"/>
 			<RowDefinition Height="*"/>
 		</Grid.RowDefinitions>
 		<Grid.ColumnDefinitions>
@@ -28,17 +33,53 @@
 			<ColumnDefinition Width="Auto"/>
 			<ColumnDefinition Width="Auto"/>
 		</Grid.ColumnDefinitions>
-		<Menu Grid.Row="0"
-			  Grid.Column="0"
-			  VerticalAlignment="Center"
-			  Margin="5 2"
-			  md:MenuAssist.TopLevelMenuItemHeight="20"
-			  Style="{StaticResource MaterialDesignMenu}">
-			<MenuItem Header="편집">
-				<MenuItem Header="편집켜기" x:Name="OnEditShape"/>
-				<MenuItem Header="편집끄기" x:Name="OffEditShape"/>
-			</MenuItem>
-		</Menu>
+		<md:Card Grid.Row="0"
+				 Grid.Column="0"
+				 Grid.ColumnSpan="3"
+				 md:ThemeAssist.Theme="Inherit"
+				 VerticalAlignment="Center">
+			<Menu Margin="5 2"
+				  md:MenuAssist.TopLevelMenuItemHeight="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type md:Card}},Path=ActualHeight}"
+				  Style="{StaticResource MaterialDesignMenu}"
+				  >
+				<MenuItem Header="편집" Margin="0">
+					<MenuItem Header="편집켜기" x:Name="OnEditShape"
+						  IsEnabled="{Binding IsOnEditShape, Converter={StaticResource InvertBooleanConverter}}"/>
+					<MenuItem Header="편집끄기" x:Name="OffEditShape"
+						  IsEnabled="{Binding IsOnEditShape}"/>
+				</MenuItem>
+				<ToolBarTray Background="Transparent" VerticalAlignment="Top" Height="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type md:Card}},Path=ActualHeight}">
+					<ToolBar ClipToBounds="True" md:ThemeAssist.Theme="Inherit" VerticalAlignment="Center" 
+							 Height="43" IsEnabled="{Binding IsOnEditShape}">
+						<Button x:Name="AddCircle" ToolTip="Add Circle Symbol"
+								Style="{StaticResource TrayButtonStyle}">
+							<Button.Content>
+								<md:PackIcon Kind="CircleOutline" Width="30" Height="30"/>
+							</Button.Content>
+						</Button>
+						<Button x:Name="AddRectangle" ToolTip="Add Rectangle Symbol"
+								Style="{StaticResource TrayButtonStyle}">
+							<Button.Content>
+								<md:PackIcon Kind="RectangleOutline" Width="30" Height="30"/>
+							</Button.Content>
+						</Button>
+						<Button x:Name="AddTriangle" ToolTip="Add Triangle Symbol"
+								Style="{StaticResource TrayButtonStyle}">
+							<Button.Content>
+								<md:PackIcon Kind="TriangleOutline" Width="30" Height="30"/>
+							</Button.Content>
+						</Button>
+						<Button x:Name="AddLine" ToolTip="Add Line Symbol"
+								Style="{StaticResource TrayButtonStyle}">
+							<Button.Content>
+								<md:PackIcon Kind="HorizontalLine" Width="30" Height="30"/>
+							</Button.Content>
+						</Button>
+					</ToolBar>
+				</ToolBarTray>
+			</Menu>
+		</md:Card>
+		
 		<!--<CheckBox Grid.Row="0"
 				  Grid.Column="0"
 				  Click="OnClick"
@@ -65,10 +106,12 @@
 				x:Name="DesignerCanvas"
 				ClipToBounds="True"
 				Background="#88000000"
+				cal:Message.Attach="[Event MouseLeftButtonDown] = [Action OnClickAdd($source, $eventArgs)];
+				[Event MouseRightButtonDown] = [Action OnClickFinish($source, $eventArgs)]"
 				SnapsToDevicePixels="True">
-
+			
 			<!--<ContentControl cal:View.Model="{Binding CirclesViewModel, UpdateSourceTrigger = PropertyChanged, Mode=TwoWay}"/>-->
-			<units:CustomControl cal:View.Model="{Binding CirclesViewModel, UpdateSourceTrigger = PropertyChanged, Mode=TwoWay}"/>
+			<ContentControl cal:View.Model="{Binding ShapeCollectionViewModel, UpdateSourceTrigger = PropertyChanged, Mode=TwoWay}"/>
 
 			 <!--Ellipse--> 
 			<!--<ContentControl MinWidth="100"
@@ -112,8 +155,6 @@
 					<RotateTransform x:Name="OuterShape_RotateTransform"/>
 				</ContentControl.RenderTransform>
 			</ContentControl>-->
-
-			
 		</Canvas>
 		<GridSplitter Grid.Column="1"
 					  Grid.Row="2"

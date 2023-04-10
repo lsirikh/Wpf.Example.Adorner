@@ -47,7 +47,7 @@ namespace Wpf.AdornerProject.Sample.ViewModels.Properties
         #region - Overrides -
         protected override Task OnActivateAsync(CancellationToken cancellationToken)
         {
-            Model = new ShapeBaseViewModel();
+            Model = new ShapeViewModel();
             _eventAggregator.SubscribeOnUIThread(this);
             return base.OnActivateAsync(cancellationToken);
         }
@@ -60,7 +60,7 @@ namespace Wpf.AdornerProject.Sample.ViewModels.Properties
         #region - Binding Methods -
         #endregion
         #region - Processes -
-        public void InsertModel(ShapeBaseViewModel model)
+        public void InsertModel(IShapeViewModel model)
         {
             Model = model;
             Debug.WriteLine($"PropertyControlViewModel Hash : {Model.GetHashCode()} ");
@@ -69,7 +69,7 @@ namespace Wpf.AdornerProject.Sample.ViewModels.Properties
 
         public void ClearModel()
         {
-            Model = new ShapeBaseViewModel();
+            Model = new ShapeViewModel();
         }
 
         
@@ -78,7 +78,7 @@ namespace Wpf.AdornerProject.Sample.ViewModels.Properties
         #endregion
         #region - Properties -
 
-        public ShapeBaseViewModel Model
+        public IShapeViewModel Model
         {
             get { return _model; }
             set 
@@ -97,7 +97,7 @@ namespace Wpf.AdornerProject.Sample.ViewModels.Properties
         #endregion
         #region - Attributes -
         private bool _isEnable;
-        private ShapeBaseViewModel _model;
+        private IShapeViewModel _model;
         private IEventAggregator _eventAggregator;
         #endregion
     }

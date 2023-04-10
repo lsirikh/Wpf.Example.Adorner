@@ -10,15 +10,12 @@ namespace Wpf.AdornerProject.Sample.Models
         double Width { get; set; }
         double Height { get; set; }
         double Angle { get; set; }
-        double ShapeWidth { get; set; }
-        double ShapeHeight { get; set; }
-        SolidColorBrush Fill { get; set; }
+        double StrokeThickness { get; set; }
+        string Stroke { get; set; }
+        string Fill { get; set; }
         bool IsShowLable { get; set; }
         string Lable { get; set; }
         double FontSize { get; set; }
-        double LableWidth { get; set; }
-        double LableHeight { get; set; }
-        bool IsEditable { get; set; }
         bool IsSelected { get; set; }
     }
 }
