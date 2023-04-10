@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace Wpf.AdornerProject.Sample.Views.Elements
 {
     /// <summary>
-    /// Interaction logic for CircleEntityView.xaml
+    /// Interaction logic for LineShapeView.xaml
     /// </summary>
-    public partial class CircleEntityView : UserControl
+    public partial class LineShapeView : UserControl
     {
-        public CircleEntityView()
+        public LineShapeView()
         {
             InitializeComponent();
         }

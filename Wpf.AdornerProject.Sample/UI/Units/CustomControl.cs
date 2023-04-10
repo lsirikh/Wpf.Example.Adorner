@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +24,15 @@ namespace Wpf.AdornerProject.Sample.UI.Units
             DefaultStyleKeyProperty.OverrideMetadata(typeof(CustomControl), new FrameworkPropertyMetadata(typeof(CustomControl)));
         }
 
+        public bool OnEditable
+        {
+            get { return (bool)GetValue(OnEditableProperty); }
+            set { SetValue(OnEditableProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for OnEditable.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty OnEditableProperty =
+            DependencyProperty.Register("OnEditable", typeof(bool), typeof(ContentControl), new PropertyMetadata(false));
 
 
         public bool IsEditable
@@ -36,44 +46,15 @@ namespace Wpf.AdornerProject.Sample.UI.Units
             DependencyProperty.Register("IsEditable", typeof(bool), typeof(CustomControl), new PropertyMetadata(false));
 
 
-
-        public Brush Fill
+        public string Fill
         {
-            get { return (Brush)GetValue(FillProperty); }
+            get { return (string)GetValue(FillProperty); }
             set { SetValue(FillProperty, value); }
         }
 
         // Using a DependencyProperty as the backing store for Fill.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty FillProperty =
-            DependencyProperty.Register("Fill", typeof(Brush), typeof(CustomControl), new PropertyMetadata(Brushes.Transparent));
-
-
-
-
-        public double ShapeWidth
-        {
-            get { return (double)GetValue(ShapeWidthProperty); }
-            set { SetValue(ShapeWidthProperty, value); }
-        }
-
-        // Using a DependencyProperty as the backing store for ShapeWidth.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty ShapeWidthProperty =
-            DependencyProperty.Register("ShapeWidth", typeof(double), typeof(CustomControl), new PropertyMetadata(20d));
-
-
-
-
-        public double ShapeHeight
-        {
-            get { return (double)GetValue(ShapeHeightProperty); }
-            set { SetValue(ShapeHeightProperty, value); }
-        }
-
-        // Using a DependencyProperty as the backing store for ShapeHeight.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty ShapeHeightProperty =
-            DependencyProperty.Register("ShapeHeight", typeof(double), typeof(CustomControl), new PropertyMetadata(20d));
-
-
+            DependencyProperty.Register("Fill", typeof(string), typeof(CustomControl), new PropertyMetadata("#000000"));
 
 
         public bool IsShowLable
@@ -85,6 +66,20 @@ namespace Wpf.AdornerProject.Sample.UI.Units
         // Using a DependencyProperty as the backing store for IsShowLable.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty IsShowLableProperty =
             DependencyProperty.Register("IsShowLable", typeof(bool), typeof(CustomControl), new PropertyMetadata(false));
+
+
+
+
+
+        public double Angle
+        {
+            get { return (double)GetValue(AngleProperty); }
+            set { SetValue(AngleProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for Angle.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty AngleProperty =
+            DependencyProperty.Register("Angle", typeof(double), typeof(CustomControl), new PropertyMetadata(0d));
 
 
 
@@ -101,32 +96,12 @@ namespace Wpf.AdornerProject.Sample.UI.Units
 
 
 
-        public double LableWidth
-        {
-            get { return (double)GetValue(LableWidthProperty); }
-            set { SetValue(LableWidthProperty, value); }
-        }
+        //public void SizeChange(object sender, MouseEventArgs e)
+        //{
+        //    if(!(sender is Ellipse ellipse))
+        //        return;
 
-        // Using a DependencyProperty as the backing store for LableWidth.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty LableWidthProperty =
-            DependencyProperty.Register("LableWidth", typeof(double), typeof(CustomControl), new PropertyMetadata(20d));
-
-
-
-
-
-        public double LableHeight
-        {
-            get { return (double)GetValue(LableHeightProperty); }
-            set { SetValue(LableHeightProperty, value); }
-        }
-
-        // Using a DependencyProperty as the backing store for LableHeight.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty LableHeightProperty =
-            DependencyProperty.Register("LableHeight", typeof(double), typeof(CustomControl), new PropertyMetadata(10d));
-
-
-
-
+        //    Debug.WriteLine($"{ellipse.Width} {ellipse.Height}");
+        //}
     }
 }

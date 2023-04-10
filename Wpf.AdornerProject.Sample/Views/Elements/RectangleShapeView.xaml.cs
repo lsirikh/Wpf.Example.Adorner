@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Wpf.AdornerProject.Sample.Views.Shapes
+namespace Wpf.AdornerProject.Sample.Views.Elements
 {
     /// <summary>
-    /// Interaction logic for CirclesView.xaml
+    /// Interaction logic for RectangleShapeView.xaml
     /// </summary>
-    public partial class CirclesView : UserControl
+    public partial class RectangleShapeView : UserControl
     {
-        public CirclesView()
+        public RectangleShapeView()
         {
             InitializeComponent();
         }

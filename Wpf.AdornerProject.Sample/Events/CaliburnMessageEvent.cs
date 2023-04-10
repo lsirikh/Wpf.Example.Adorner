@@ -9,6 +9,9 @@
         Email        : lsirikh@naver.com                                         
      ****************************************************************************/
 
+    /// <summary>
+    /// Shape Edit 이벤트 메시지
+    /// </summary>
     public class EditShapeMessage
     {
         public EditShapeMessage(bool isEditable, object viewModel)
@@ -17,7 +20,30 @@
             ViewModel = viewModel;
         }
 
+        /// <summary>
+        /// Shape Edit Option
+        /// True/False
+        /// </summary>
         public bool IsEditable { get; }
+        /// <summary>
+        /// 편집 할 인스턴스
+        /// </summary>
+        public object ViewModel { get; }
+    }
+
+    /// <summary>
+    /// Shape 삭제 이벤트 메시지
+    /// </summary>
+    public class DeleteShapeMessage
+    {
+        public DeleteShapeMessage(object viewModel)
+        {
+            ViewModel = viewModel;
+        }
+
+        /// <summary>
+        /// 삭제 할 인스턴스
+        /// </summary>
         public object ViewModel { get; }
     }
 }

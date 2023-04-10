@@ -1,22 +1,25 @@
-﻿using System.Windows.Media;
+﻿using Caliburn.Micro;
+using Wpf.AdornerProject.Sample.Models;
 
-namespace Wpf.AdornerProject.Sample.Models
+namespace Wpf.AdornerProject.Sample.ViewModels.Elements
 {
     /****************************************************************************
         Purpose      :                                                           
         Created By   : GHLee                                                
-        Created On   : 4/4/2023 10:51:11 AM                                                    
+        Created On   : 4/7/2023 3:32:28 PM                                                    
         Department   : SW Team                                                   
         Company      : Sensorway Co., Ltd.                                       
         Email        : lsirikh@naver.com                                         
      ****************************************************************************/
 
-    public class PropertyModel : IPropertyModel
+    public class LineShapeViewModel : ShapeViewModel
     {
 
         #region - Ctors -
-        public PropertyModel()
+        public LineShapeViewModel(PropertyModel model)
         {
+            _model = model;
+            _eventAggregator = IoC.Get<IEventAggregator>();
         }
         #endregion
         #region - Implementation of Interface -
@@ -30,20 +33,6 @@ namespace Wpf.AdornerProject.Sample.Models
         #region - IHanldes -
         #endregion
         #region - Properties -
-        public int Id { get; set; }
-        public double X { get; set; }
-        public double Y { get; set; }
-        public double Width { get; set; }
-        public double Height { get; set; }
-        public double Angle { get; set; }
-        public double StrokeThickness { get; set; }
-        public string Stroke { get; set; }
-        public string Fill { get; set; }
-        public bool IsShowLable { get; set; }
-        public string Lable { get; set; }
-        public double FontSize { get; set; }
-        //public bool IsEditable { get; set; }
-        public bool IsSelected { get; set; }
         #endregion
         #region - Attributes -
         #endregion

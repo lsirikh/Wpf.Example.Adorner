@@ -88,7 +88,6 @@ namespace Wpf.AdornerProject.Sample.Behaviors
         #region - Properties -
         #endregion
         #region - Attributes -
-        private Point _previousMousePosition;
         #endregion
     }
 }

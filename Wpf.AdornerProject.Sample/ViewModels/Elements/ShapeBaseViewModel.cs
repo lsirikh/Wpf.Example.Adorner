@@ -14,14 +14,10 @@ namespace Wpf.AdornerProject.Sample.ViewModels.Elements
         Email        : lsirikh@naver.com                                         
      ****************************************************************************/
 
-    public class ShapeBaseViewModel : Screen
+    public abstract class ShapeBaseViewModel : Screen, IShapeBaseViewModel
     {
 
         #region - Ctors -
-        public ShapeBaseViewModel()
-        {
-            _model = new PropertyModel();
-        }
         #endregion
         #region - Implementation of Interface -
         #endregion
@@ -93,27 +89,27 @@ namespace Wpf.AdornerProject.Sample.ViewModels.Elements
             }
         }
 
-        public double ShapeWidth
+        public double StrokeThickness
         {
-            get { return _model.ShapeWidth; }
+            get { return _model.StrokeThickness; }
             set
             {
-                _model.ShapeWidth = value;
-                NotifyOfPropertyChange(() => ShapeWidth);
+                _model.StrokeThickness = value;
+                NotifyOfPropertyChange(() => StrokeThickness);
             }
         }
 
-        public double ShapeHeight
+        public string Stroke
         {
-            get { return _model.ShapeHeight; }
+            get { return _model.Stroke; }
             set
             {
-                _model.ShapeHeight = value;
-                NotifyOfPropertyChange(() => ShapeHeight);
+                _model.Stroke = value;
+                NotifyOfPropertyChange(() => Stroke);
             }
         }
 
-        public SolidColorBrush Fill
+        public string Fill
         {
             get { return _model.Fill; }
             set
@@ -153,26 +149,6 @@ namespace Wpf.AdornerProject.Sample.ViewModels.Elements
             }
         }
 
-        public double LableWidth
-        {
-            get { return _model.LableWidth; }
-            set
-            {
-                _model.LableWidth = value;
-                NotifyOfPropertyChange(() => LableWidth);
-            }
-        }
-
-        public double LableHeight
-        {
-            get { return _model.LableHeight; }
-            set
-            {
-                _model.LableHeight = value;
-                NotifyOfPropertyChange(() => LableHeight);
-            }
-        }
-
         public bool IsSelected
         {
             get { return _model.IsSelected; }
@@ -183,18 +159,12 @@ namespace Wpf.AdornerProject.Sample.ViewModels.Elements
             }
         }
 
-        public bool IsEditable
-        {
-            get { return _model.IsEditable; }
-            set
-            {
-                _model.IsEditable = value;
-                NotifyOfPropertyChange(() => IsEditable);
-            }
-        }
+        
+
         #endregion
         #region - Attributes -
         protected PropertyModel _model { get; set; }
+        
         #endregion
     }
 }

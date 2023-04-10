@@ -83,3 +83,13 @@
   7) ItemsControl을 활용한 다중 심볼 제어 적용  
   8) Menu Option을 활용한 개별 심볼 제어 적용  
   9) Shape Property 개념 적용 및 모델 구성  
+
+<hr>
+
+### Update Date: 2023/04/07  
+  
+* Project : Wpf.AdornerProject.Sample      
+* Version : v1.0.1  
+* 기능:  
+  1) Circle Shape 구현
+  2) Rectangle Shape 구현

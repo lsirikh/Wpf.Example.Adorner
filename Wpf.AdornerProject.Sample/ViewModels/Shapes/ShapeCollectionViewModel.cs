@@ -21,12 +21,13 @@ namespace Wpf.AdornerProject.Sample.ViewModels.Shapes
         Email        : lsirikh@naver.com                                         
      ****************************************************************************/
 
-    public class CirclesViewModel : Screen
+    public class ShapeCollectionViewModel : Screen
         , IHandle<EditShapeMessage>
+        , IHandle<DeleteShapeMessage>
     {
 
         #region - Ctors -
-        public CirclesViewModel(CircleShapeProvider provider
+        public ShapeCollectionViewModel(ShapeProvider provider
             , IEventAggregator eventAggregator)
         {
             ShapeProvider = provider;
@@ -42,7 +43,7 @@ namespace Wpf.AdornerProject.Sample.ViewModels.Shapes
                 {
                     _prviousViewModel.IsEditable = false;
                 }
-                _prviousViewModel = message.ViewModel as ShapeBaseViewModel;
+                _prviousViewModel = message.ViewModel as IShapeViewModel;
             }
             else
             {
@@ -51,11 +52,23 @@ namespace Wpf.AdornerProject.Sample.ViewModels.Shapes
 
             return Task.CompletedTask;
         }
+
+        public Task HandleAsync(DeleteShapeMessage message, CancellationToken cancellationToken)
+        {
+            if (!(message.ViewModel is CircleShapeViewModel circleViewModel))
+                return Task.CompletedTask;
+
+            ShapeProvider.Remove(circleViewModel);
+            //ShapeProvider.CollectionEntity.Remove(circleViewModel);
+            //NotifyOfPropertyChange(()=>ShapeProvider);
+            circleViewModel.Dispose();
+            return Task.CompletedTask;
+        }
         #endregion
         #region - Overrides -
         protected override Task OnActivateAsync(CancellationToken cancellationToken)
         {
-            CreateEntity();
+            //CreateEntity();
             _eventAggregator.SubscribeOnUIThread(this);
             return base.OnActivateAsync(cancellationToken);
         }
@@ -72,34 +85,28 @@ namespace Wpf.AdornerProject.Sample.ViewModels.Shapes
         #region - Processes -
         private void CreateEntity()
         {
-            var vm1 = new CircleEntityViewModel(new PropertyModel()
+            var vm1 = new CircleShapeViewModel(new PropertyModel()
             {
                 X = 200,
                 Y = 100,
                 Width = 80,
                 Height = 80,
                 Angle = 20,
-                Fill = Brushes.Blue,
-                ShapeWidth = 30,
-                ShapeHeight = 30,
-                LableWidth = 50,
-                LableHeight = 15,
+                Fill = "#FFFF0000",
+                
                 FontSize = 15,
                 Lable = "테스트1",
                 IsShowLable = true
             });
-            var vm2 = new CircleEntityViewModel(new PropertyModel()
+            var vm2 = new CircleShapeViewModel(new PropertyModel()
             {
                 X = 100,
                 Y = 200,
                 Width = 100,
                 Height = 100,
                 Angle = 0,
-                Fill = Brushes.Red,
-                ShapeWidth = 30,
-                ShapeHeight = 30,
-                LableWidth = 60,
-                LableHeight = 20,
+                Fill = "#FFFF0000",
+               
                 FontSize = 15,
                 Lable = "테스트2",
                 IsShowLable = true
@@ -111,15 +118,17 @@ namespace Wpf.AdornerProject.Sample.ViewModels.Shapes
         }
 
         
+
+
         #endregion
         #region - IHanldes -
         #endregion
         #region - Properties -
-        public CircleShapeProvider ShapeProvider { get; }
+        public ShapeProvider ShapeProvider { get; set; }
         #endregion
         #region - Attributes -
         private IEventAggregator _eventAggregator;
-        private ShapeBaseViewModel _prviousViewModel;
+        private IShapeViewModel _prviousViewModel;
         #endregion
     }
 }

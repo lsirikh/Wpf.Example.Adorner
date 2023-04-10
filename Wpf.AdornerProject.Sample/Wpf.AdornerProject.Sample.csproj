@@ -124,24 +124,36 @@
     <Compile Include="Events\CaliburnMessageEvent.cs" />
     <Compile Include="Models\IPropertyModel.cs" />
     <Compile Include="Models\PropertyModel.cs" />
-    <Compile Include="Providers\CircleShapeProvider.cs" />
+    <Compile Include="Providers\ShapeProvider.cs" />
     <Compile Include="UI\Units\CustomControl.cs" />
     <Compile Include="UI\Units\CustomRectangle.cs" />
     <Compile Include="Utils\ShapeSizeConverter.cs" />
     <Compile Include="Utils\ShapeSizeWithLableConverter.cs" />
-    <Compile Include="ViewModels\Elements\CircleEntityViewModel.cs" />
+    <Compile Include="Utils\StringToColorConverter.cs" />
+    <Compile Include="ViewModels\Elements\CircleShapeViewModel.cs" />
+    <Compile Include="ViewModels\Elements\IShapeBaseViewModel.cs" />
+    <Compile Include="ViewModels\Elements\IShapeViewModel.cs" />
+    <Compile Include="ViewModels\Elements\LineShapeViewModel.cs" />
+    <Compile Include="ViewModels\Elements\RectangleShapeViewModel.cs" />
     <Compile Include="ViewModels\Elements\ShapeBaseViewModel.cs" />
+    <Compile Include="ViewModels\Elements\ShapeViewModel.cs" />
     <Compile Include="ViewModels\Properties\PropertyControlViewModel.cs" />
-    <Compile Include="ViewModels\Shapes\CirclesViewModel.cs" />
+    <Compile Include="ViewModels\Shapes\ShapeCollectionViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
-    <Compile Include="Views\Elements\CircleEntityView.xaml.cs">
-      <DependentUpon>CircleEntityView.xaml</DependentUpon>
+    <Compile Include="Views\Elements\CircleShapeView.xaml.cs">
+      <DependentUpon>CircleShapeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Elements\LineShapeView.xaml.cs">
+      <DependentUpon>LineShapeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Elements\RectangleShapeView.xaml.cs">
+      <DependentUpon>RectangleShapeView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Properties\PropertyControlView.xaml.cs">
       <DependentUpon>PropertyControlView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Shapes\CirclesView.xaml.cs">
-      <DependentUpon>CirclesView.xaml</DependentUpon>
+    <Compile Include="Views\Shapes\ShapeCollectionView.xaml.cs">
+      <DependentUpon>ShapeCollectionView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ShellView.xaml.cs">
       <DependentUpon>ShellView.xaml</DependentUpon>
@@ -162,7 +174,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Elements\CircleEntityView.xaml">
+    <Page Include="Views\Elements\CircleShapeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Elements\LineShapeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Elements\RectangleShapeView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -170,7 +190,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Shapes\CirclesView.xaml">
+    <Page Include="Views\Shapes\ShapeCollectionView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
