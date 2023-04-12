@@ -1,8 +1,9 @@
 ﻿namespace Wpf.AdornerProject.Sample.ViewModels.Elements
 {
-    public interface IShapeViewModel : IShapeBaseViewModel
+    public interface IShapeViewModel : ISymbolViewModel
     {
-        bool IsEditable { get; set; }
-        bool OnEditable { get; set; }
+        string ShapeFill { get; set; }
+        string ShapeStroke { get; set; }
+        double ShapeStrokeThick { get; set; }
     }
 }

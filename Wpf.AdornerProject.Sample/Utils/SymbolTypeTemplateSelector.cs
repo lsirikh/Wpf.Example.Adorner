@@ -1,40 +1,35 @@
-﻿using Caliburn.Micro;
-using System;
-using System.Diagnostics;
-using System.Runtime.InteropServices;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Controls.Primitives;
-using System.Windows.Media;
-using Wpf.AdornerProject.Sample.Events;
-using Wpf.AdornerProject.Sample.Models;
-using Wpf.AdornerProject.Sample.ViewModels.Properties;
+using Wpf.AdornerProject.Sample.ViewModels.Elements;
 
-namespace Wpf.AdornerProject.Sample.ViewModels.Elements
+namespace Wpf.AdornerProject.Sample.Utils
 {
     /****************************************************************************
         Purpose      :                                                           
         Created By   : GHLee                                                
-        Created On   : 4/4/2023 11:17:43 AM                                                    
+        Created On   : 4/11/2023 4:36:21 PM                                                    
         Department   : SW Team                                                   
         Company      : Sensorway Co., Ltd.                                       
         Email        : lsirikh@naver.com                                         
      ****************************************************************************/
 
-    public class CircleShapeViewModel : ShapeViewModel
+    public class SymbolTypeTemplateSelector : DataTemplateSelector
     {
 
         #region - Ctors -
-        public CircleShapeViewModel(ShapePropertyModel model)
-        {
-            _model = model;
-            _eventAggregator = IoC.Get<IEventAggregator>();
-        }
         #endregion
         #region - Implementation of Interface -
         #endregion
         #region - Overrides -
+        public override DataTemplate SelectTemplate(object item, DependencyObject container)
+        {
+            if (item is TextInfoViewModel)
+                return SymbolTemplate;
+            else if(item is ShapeViewModel)
+                return ShapeTemplate;
+            else
+                return null;
+        }
         #endregion
         #region - Binding Methods -
         #endregion
@@ -43,6 +38,8 @@ namespace Wpf.AdornerProject.Sample.ViewModels.Elements
         #region - IHanldes -
         #endregion
         #region - Properties -
+        public DataTemplate SymbolTemplate { get; set; }
+        public DataTemplate ShapeTemplate { get; set; }
         #endregion
         #region - Attributes -
         #endregion

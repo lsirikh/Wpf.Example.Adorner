@@ -1,40 +1,41 @@
 ﻿using Caliburn.Micro;
-using System;
-using System.Diagnostics;
-using System.Runtime.InteropServices;
-using System.Threading.Tasks;
+using Ironwall.Libraries.Utils;
+using System.Collections.ObjectModel;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Controls.Primitives;
 using System.Windows.Media;
-using Wpf.AdornerProject.Sample.Events;
 using Wpf.AdornerProject.Sample.Models;
-using Wpf.AdornerProject.Sample.ViewModels.Properties;
 
 namespace Wpf.AdornerProject.Sample.ViewModels.Elements
 {
     /****************************************************************************
         Purpose      :                                                           
         Created By   : GHLee                                                
-        Created On   : 4/4/2023 11:17:43 AM                                                    
+        Created On   : 4/10/2023 4:13:05 PM                                                    
         Department   : SW Team                                                   
         Company      : Sensorway Co., Ltd.                                       
         Email        : lsirikh@naver.com                                         
      ****************************************************************************/
 
-    public class CircleShapeViewModel : ShapeViewModel
+    public class PolyShapeViewModel : ShapeViewModel
     {
 
         #region - Ctors -
-        public CircleShapeViewModel(ShapePropertyModel model)
+        public PolyShapeViewModel(PropertyModel model)
         {
             _model = model;
             _eventAggregator = IoC.Get<IEventAggregator>();
+
+            _points = new PointCollection();
         }
         #endregion
         #region - Implementation of Interface -
         #endregion
         #region - Overrides -
+        public override void Dispose()
+        {
+            base.Dispose();
+            _points = null;
+        }
         #endregion
         #region - Binding Methods -
         #endregion
@@ -43,8 +44,21 @@ namespace Wpf.AdornerProject.Sample.ViewModels.Elements
         #region - IHanldes -
         #endregion
         #region - Properties -
+        public PointCollection Points
+        {
+            get => _points;
+            set
+            {
+                if (_points != value)
+                {
+                    _points = value;
+                    NotifyOfPropertyChange(()=>Points);
+                }
+            }
+        }
         #endregion
         #region - Attributes -
+        private PointCollection _points;
         #endregion
     }
 }

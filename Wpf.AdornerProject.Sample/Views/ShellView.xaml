@@ -72,7 +72,13 @@
 						<Button x:Name="AddLine" ToolTip="Add Line Symbol"
 								Style="{StaticResource TrayButtonStyle}">
 							<Button.Content>
-								<md:PackIcon Kind="HorizontalLine" Width="30" Height="30"/>
+								<md:PackIcon Kind="VectorPolyline" Width="30" Height="30"/>
+							</Button.Content>
+						</Button>
+						<Button x:Name="AddText" ToolTip="Add Text Symbol"
+								Style="{StaticResource TrayButtonStyle}">
+							<Button.Content>
+								<md:PackIcon Kind="Abc" Width="30" Height="30"/>
 							</Button.Content>
 						</Button>
 					</ToolBar>

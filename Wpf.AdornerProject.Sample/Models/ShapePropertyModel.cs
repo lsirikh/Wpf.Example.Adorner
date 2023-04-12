@@ -1,35 +1,20 @@
-﻿using Caliburn.Micro;
-using System;
-using System.Diagnostics;
-using System.Runtime.InteropServices;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Controls.Primitives;
-using System.Windows.Media;
-using Wpf.AdornerProject.Sample.Events;
-using Wpf.AdornerProject.Sample.Models;
-using Wpf.AdornerProject.Sample.ViewModels.Properties;
-
-namespace Wpf.AdornerProject.Sample.ViewModels.Elements
+﻿namespace Wpf.AdornerProject.Sample.Models
 {
     /****************************************************************************
         Purpose      :                                                           
         Created By   : GHLee                                                
-        Created On   : 4/4/2023 11:17:43 AM                                                    
+        Created On   : 4/11/2023 8:59:26 AM                                                    
         Department   : SW Team                                                   
         Company      : Sensorway Co., Ltd.                                       
         Email        : lsirikh@naver.com                                         
      ****************************************************************************/
 
-    public class CircleShapeViewModel : ShapeViewModel
+    public class ShapePropertyModel : PropertyModel, IShapePropertyModel
     {
 
         #region - Ctors -
-        public CircleShapeViewModel(ShapePropertyModel model)
+        public ShapePropertyModel()
         {
-            _model = model;
-            _eventAggregator = IoC.Get<IEventAggregator>();
         }
         #endregion
         #region - Implementation of Interface -
@@ -43,6 +28,9 @@ namespace Wpf.AdornerProject.Sample.ViewModels.Elements
         #region - IHanldes -
         #endregion
         #region - Properties -
+        public double ShapeStrokeThick { get; set; }
+        public string ShapeStroke { get; set; } = "#FFFF0000";
+        public string ShapeFill { get; set; } = "#00FFFFFF";
         #endregion
         #region - Attributes -
         #endregion

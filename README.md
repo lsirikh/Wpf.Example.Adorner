@@ -93,3 +93,19 @@
 * 기능:  
   1) Circle Shape 구현
   2) Rectangle Shape 구현
+  3) PolyLine Shape 구현
+  4) Normal Symbol 구현
+  5) Symbol 및 Shape 계층화
+
+<hr>
+
+### Update Date: 2023/04/11  
+  
+* Project : Wpf.AdornerProject.Sample      
+* Version : v1.0.2  
+* 기능:  
+  1) PolyLine Shape 구현  
+  2) Normal Symbol 구현  
+  3) Symbol 및 Shape 계층화  
+  4) Property, ShapeProperty 계층화  
+  5) ClassTemplateSelector 구현  

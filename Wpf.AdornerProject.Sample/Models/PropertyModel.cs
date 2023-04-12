@@ -36,9 +36,6 @@ namespace Wpf.AdornerProject.Sample.Models
         public double Width { get; set; }
         public double Height { get; set; }
         public double Angle { get; set; }
-        public double StrokeThickness { get; set; }
-        public string Stroke { get; set; }
-        public string Fill { get; set; }
         public bool IsShowLable { get; set; }
         public string Lable { get; set; }
         public double FontSize { get; set; }

@@ -27,10 +27,10 @@ namespace Wpf.AdornerProject.Sample.ViewModels.Shapes
     {
 
         #region - Ctors -
-        public ShapeCollectionViewModel(ShapeProvider provider
+        public ShapeCollectionViewModel(SymbolProvider provider
             , IEventAggregator eventAggregator)
         {
-            ShapeProvider = provider;
+            SymbolProvider = provider;
             _eventAggregator = eventAggregator;
         }
         #endregion
@@ -43,7 +43,7 @@ namespace Wpf.AdornerProject.Sample.ViewModels.Shapes
                 {
                     _prviousViewModel.IsEditable = false;
                 }
-                _prviousViewModel = message.ViewModel as IShapeViewModel;
+                _prviousViewModel = message.ViewModel as ISymbolViewModel;
             }
             else
             {
@@ -55,13 +55,11 @@ namespace Wpf.AdornerProject.Sample.ViewModels.Shapes
 
         public Task HandleAsync(DeleteShapeMessage message, CancellationToken cancellationToken)
         {
-            if (!(message.ViewModel is CircleShapeViewModel circleViewModel))
+            if (!(message.ViewModel is ISymbolViewModel viewModel))
                 return Task.CompletedTask;
 
-            ShapeProvider.Remove(circleViewModel);
-            //ShapeProvider.CollectionEntity.Remove(circleViewModel);
-            //NotifyOfPropertyChange(()=>ShapeProvider);
-            circleViewModel.Dispose();
+            SymbolProvider.Remove(viewModel);
+            viewModel.Dispose();
             return Task.CompletedTask;
         }
         #endregion
@@ -85,35 +83,35 @@ namespace Wpf.AdornerProject.Sample.ViewModels.Shapes
         #region - Processes -
         private void CreateEntity()
         {
-            var vm1 = new CircleShapeViewModel(new PropertyModel()
+            var vm1 = new CircleShapeViewModel(new ShapePropertyModel()
             {
                 X = 200,
                 Y = 100,
                 Width = 80,
                 Height = 80,
                 Angle = 20,
-                Fill = "#FFFF0000",
-                
+                ShapeFill = "##00FFFFFF",
+                ShapeStroke = "#FFFF0000",
                 FontSize = 15,
                 Lable = "테스트1",
                 IsShowLable = true
             });
-            var vm2 = new CircleShapeViewModel(new PropertyModel()
+            var vm2 = new CircleShapeViewModel(new ShapePropertyModel()
             {
                 X = 100,
                 Y = 200,
                 Width = 100,
                 Height = 100,
                 Angle = 0,
-                Fill = "#FFFF0000",
-               
+                ShapeFill = "#00FFFFFF",
+                ShapeStroke = "#FFFF0000",
                 FontSize = 15,
                 Lable = "테스트2",
                 IsShowLable = true
             });
 
-            ShapeProvider.Add(vm1);
-            ShapeProvider.Add(vm2);
+            SymbolProvider.Add(vm1);
+            SymbolProvider.Add(vm2);
 
         }
 
@@ -124,11 +122,11 @@ namespace Wpf.AdornerProject.Sample.ViewModels.Shapes
         #region - IHanldes -
         #endregion
         #region - Properties -
-        public ShapeProvider ShapeProvider { get; set; }
+        public SymbolProvider SymbolProvider { get; set; }
         #endregion
         #region - Attributes -
         private IEventAggregator _eventAggregator;
-        private IShapeViewModel _prviousViewModel;
+        private ISymbolBaseViewModel _prviousViewModel;
         #endregion
     }
 }

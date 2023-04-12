@@ -16,87 +16,59 @@ namespace Wpf.AdornerProject.Sample.ViewModels.Elements
         Email        : lsirikh@naver.com                                         
      ****************************************************************************/
 
-    public class ShapeViewModel : ShapeBaseViewModel, IShapeViewModel, IDisposable
+    public class ShapeViewModel :SymbolViewModel, IShapeViewModel
     {
 
         #region - Ctors -
         public ShapeViewModel()
         {
-            _model = new PropertyModel();
+            _model = new ShapePropertyModel();
         }
         #endregion
         #region - Implementation of Interface -
-        public virtual void Dispose()
-        {
-            _model = null;
-            GC.Collect();
-        }
+        
         #endregion
         #region - Overrides -
         #endregion
         #region - Binding Methods -
         #endregion
         #region - Processes -
-        public virtual async void OnClickEdit(object sender, RoutedEventArgs args)
-        {
-            var vm = IoC.Get<PropertyControlViewModel>();
-            vm.InsertModel(this);
-            IsEditable = true;
-
-            await _eventAggregator.PublishOnUIThreadAsync(new EditShapeMessage(IsEditable, this));
-        }
-
-        public virtual async void OnClickExit(object sender, RoutedEventArgs args)
-        {
-            var vm = IoC.Get<PropertyControlViewModel>();
-            vm.ClearModel();
-            IsEditable = false;
-
-            await _eventAggregator.PublishOnUIThreadAsync(new EditShapeMessage(IsEditable, this));
-        }
-
-        public virtual async void OnClickDelete(object sender, RoutedEventArgs args)
-        {
-            if (IsEditable)
-            {
-                var vm = IoC.Get<PropertyControlViewModel>();
-                vm.ClearModel();
-                IsEditable = false;
-                await _eventAggregator.PublishOnUIThreadAsync(new EditShapeMessage(IsEditable, this));
-            }
-
-            await _eventAggregator.PublishOnUIThreadAsync(new DeleteShapeMessage(this));
-        }
         #endregion
         #region - IHanldes -
         #endregion
         #region - Properties -
-        public bool IsEditable
+        public double ShapeStrokeThick
         {
-            get { return _isEditable; }
+            get { return (_model as ShapePropertyModel).ShapeStrokeThick; }
             set
             {
-                _isEditable = value;
-                NotifyOfPropertyChange(() => IsEditable);
+                (_model as ShapePropertyModel).ShapeStrokeThick = value;
+                NotifyOfPropertyChange(() => ShapeStrokeThick);
             }
         }
 
-        public bool OnEditable
+        public string ShapeStroke
         {
-            get { return _onEditable; }
+            get { return (_model as ShapePropertyModel).ShapeStroke == null ? "#FFFF0000" : (_model as ShapePropertyModel).ShapeStroke; }
             set
             {
-                _onEditable = value;
-                NotifyOfPropertyChange(() => OnEditable);
+                (_model as ShapePropertyModel).ShapeStroke = value;
+                NotifyOfPropertyChange(() => ShapeStroke);
+            }
+        }
+
+        public string ShapeFill
+        {
+            get { return (_model as ShapePropertyModel).ShapeFill == null ? "#00FFFFFF" : (_model as ShapePropertyModel).ShapeFill; }
+            set
+            {
+                (_model as ShapePropertyModel).ShapeFill = value;
+                NotifyOfPropertyChange(() => ShapeFill);
             }
         }
         #endregion
         #region - Attributes -
-        private bool _onEditable;
-        private bool _isEditable;
-        protected IEventAggregator _eventAggregator;
 
-        
         #endregion
     }
 }

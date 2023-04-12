@@ -16,7 +16,7 @@ namespace Wpf.AdornerProject.Sample.ViewModels.Elements
     {
 
         #region - Ctors -
-        public RectangleShapeViewModel(PropertyModel model)
+        public RectangleShapeViewModel(ShapePropertyModel model)
         {
             _model = model;
             _eventAggregator = IoC.Get<IEventAggregator>();

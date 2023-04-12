@@ -4,6 +4,7 @@
     xmlns:local="clr-namespace:Wpf.AdornerProject.Sample"
 	xmlns:units="clr-namespace:Wpf.AdornerProject.Sample.UI.Units"
 	xmlns:utils="clr-namespace:Wpf.AdornerProject.Sample.Utils"
+	xmlns:uc="clr-namespace:Wpf.AdornerProject.Sample.UserControls"
 	xmlns:thumbs="clr-namespace:Wpf.Libraries.AdornerDecorator.Thumbs;assembly=Wpf.Libraries.AdornerDecorator">
 
 	<ResourceDictionary.MergedDictionaries>
@@ -11,9 +12,20 @@
 		<ResourceDictionary Source="/Wpf.AdornerProject.Sample;Component/Themes/Units/CustomControl.xaml"/>
 	</ResourceDictionary.MergedDictionaries>
 
+	<DataTemplate x:Key="SymbolTemplate">
+		<uc:SymbolPropertyView DataContext="{Binding}"/>
+	</DataTemplate>
+	<DataTemplate x:Key="ShapeTemplate">
+		<uc:ShapePropertyView DataContext="{Binding}"/>
+	</DataTemplate>
+
 	<utils:ShapeSizeConverter x:Key="ShapeSizeConverter" />
 	<utils:ShapeSizeWithLableConverter x:Key="ShapeSizeWithLableConverter" />
 	<utils:StringToColorConverter x:Key="StringToColorConverter"/>
+	<utils:ViewModelConverter x:Key="ViewModelConverter"/>
+	<utils:SymbolTypeTemplateSelector x:Key="SymbolTypeTemplateSelector"
+									  SymbolTemplate="{StaticResource SymbolTemplate}"
+									  ShapeTemplate="{StaticResource ShapeTemplate}"/>
 
 
 	<ControlTemplate x:Key="MoveThumbTemplate" TargetType="{x:Type thumbs:MoveThumb}">

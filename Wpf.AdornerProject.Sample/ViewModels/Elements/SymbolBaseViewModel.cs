@@ -1,6 +1,7 @@
 ﻿using Caliburn.Micro;
+using System;
 using System.Runtime.InteropServices;
-using System.Windows.Media;
+using System.Windows;
 using Wpf.AdornerProject.Sample.Models;
 
 namespace Wpf.AdornerProject.Sample.ViewModels.Elements
@@ -8,13 +9,13 @@ namespace Wpf.AdornerProject.Sample.ViewModels.Elements
     /****************************************************************************
         Purpose      :                                                           
         Created By   : GHLee                                                
-        Created On   : 4/4/2023 3:18:41 PM                                                    
+        Created On   : 4/11/2023 10:07:20 AM                                                    
         Department   : SW Team                                                   
         Company      : Sensorway Co., Ltd.                                       
         Email        : lsirikh@naver.com                                         
      ****************************************************************************/
 
-    public abstract class ShapeBaseViewModel : Screen, IShapeBaseViewModel
+    public abstract class SymbolBaseViewModel : Screen, ISymbolBaseViewModel, IDisposable
     {
 
         #region - Ctors -
@@ -26,6 +27,10 @@ namespace Wpf.AdornerProject.Sample.ViewModels.Elements
         #region - Binding Methods -
         #endregion
         #region - Processes -
+        public abstract void Dispose();
+        public abstract void OnClickEdit(object sender, RoutedEventArgs args);
+        public abstract void OnClickExit(object sender, RoutedEventArgs args);
+        public abstract void OnClickDelete(object sender, RoutedEventArgs args);
         #endregion
         #region - IHanldes -
         #endregion
@@ -89,36 +94,6 @@ namespace Wpf.AdornerProject.Sample.ViewModels.Elements
             }
         }
 
-        public double StrokeThickness
-        {
-            get { return _model.StrokeThickness; }
-            set
-            {
-                _model.StrokeThickness = value;
-                NotifyOfPropertyChange(() => StrokeThickness);
-            }
-        }
-
-        public string Stroke
-        {
-            get { return _model.Stroke; }
-            set
-            {
-                _model.Stroke = value;
-                NotifyOfPropertyChange(() => Stroke);
-            }
-        }
-
-        public string Fill
-        {
-            get { return _model.Fill; }
-            set
-            {
-                _model.Fill = value;
-                NotifyOfPropertyChange(() => Fill);
-            }
-        }
-
         public string Lable
         {
             get { return _model.Lable; }
@@ -159,12 +134,31 @@ namespace Wpf.AdornerProject.Sample.ViewModels.Elements
             }
         }
 
-        
+        public bool IsEditable
+        {
+            get { return _isEditable; }
+            set
+            {
+                _isEditable = value;
+                NotifyOfPropertyChange(() => IsEditable);
+            }
+        }
 
+        public bool OnEditable
+        {
+            get { return _onEditable; }
+            set
+            {
+                _onEditable = value;
+                NotifyOfPropertyChange(() => OnEditable);
+            }
+        }
+        protected PropertyModel _model { get; set; }
         #endregion
         #region - Attributes -
-        protected PropertyModel _model { get; set; }
-        
+        private bool _onEditable;
+        private bool _isEditable;
+        protected IEventAggregator _eventAggregator;
         #endregion
     }
 }

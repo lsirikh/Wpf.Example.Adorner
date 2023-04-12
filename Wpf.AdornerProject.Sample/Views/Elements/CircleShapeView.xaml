@@ -135,25 +135,15 @@
 				<RowDefinition Height="*"/>
 				<RowDefinition Height="Auto"/>
 			</Grid.RowDefinitions>
-			<TextBlock Grid.Row="1"
-					   x:Name="LableName"
-					   IsHitTestVisible="{Binding IsEditable, Converter={StaticResource InvertBooleanConverter}}"
-					   VerticalAlignment="Center"
-					   TextAlignment="Center"
-					   HorizontalAlignment="Stretch"
-					   Margin="2"
-					   Visibility="{Binding IsShowLable, Converter={StaticResource BooleanToVisibilityConverter}}"
-					   FontSize="{Binding FontSize}"
-					   Text="{Binding Lable, FallbackValue=테스트}"/>
 						
 			<Ellipse Grid.Row="0"
 					 IsHitTestVisible="{Binding IsEditable, Converter={StaticResource InvertBooleanConverter}}"
-					 StrokeThickness="{Binding StrokeThickness}">
+					 StrokeThickness="{Binding ShapeStrokeThick}">
 				<Ellipse.Stroke>
-					<SolidColorBrush Color="{Binding Stroke, Converter={StaticResource StringToColorConverter}}"/>
+					<SolidColorBrush Color="{Binding ShapeStroke, Converter={StaticResource StringToColorConverter}}"/>
 				</Ellipse.Stroke>
 				<Ellipse.Fill>
-					<SolidColorBrush Color="{Binding Fill, Converter={StaticResource StringToColorConverter}}"/>
+					<SolidColorBrush Color="{Binding ShapeFill, Converter={StaticResource StringToColorConverter}}"/>
 				</Ellipse.Fill>
 				<Ellipse.Width>
 					<MultiBinding Converter="{StaticResource ShapeSizeWithLableConverter}" ConverterParameter="Width">
@@ -167,7 +157,18 @@
 					</MultiBinding>
 				</Ellipse.Height>
 			</Ellipse>
-			
+
+			<TextBlock Grid.Row="1"
+					   x:Name="LableName"
+					   IsHitTestVisible="{Binding IsEditable, Converter={StaticResource InvertBooleanConverter}}"
+					   VerticalAlignment="Center"
+					   TextAlignment="Center"
+					   HorizontalAlignment="Stretch"
+					   Margin="2"
+					   Visibility="{Binding IsShowLable, Converter={StaticResource BooleanToVisibilityConverter}}"
+					   FontSize="{Binding FontSize}"
+					   Text="{Binding Lable, FallbackValue=테스트}"/>
+
 		</Grid>
 		<units:CustomControl.RenderTransform>
 			<RotateTransform Angle="{Binding Angle, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>

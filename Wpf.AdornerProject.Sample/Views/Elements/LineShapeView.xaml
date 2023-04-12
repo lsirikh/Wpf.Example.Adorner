@@ -65,15 +65,27 @@
 
 			<Polyline Grid.Row="0"
 					  IsHitTestVisible="{Binding IsEditable, Converter={StaticResource InvertBooleanConverter}}"
-					  StrokeThickness="{Binding StrokeThickness}"
-					  Points="0,0 80,0 80,60 0,60 0,0">
+					  StrokeThickness="{Binding ShapeStrokeThick}"
+					  Points="{Binding Points}">
+				<Polyline.Width>
+					<MultiBinding Converter="{StaticResource ShapeSizeWithLableConverter}" ConverterParameter="Width">
+						<Binding Path="Width" />
+					</MultiBinding>
+				</Polyline.Width>
+				<Polyline.Height>
+					<MultiBinding Converter="{StaticResource ShapeSizeWithLableConverter}" ConverterParameter="Height">
+						<Binding Path="Height"/>
+						<Binding Path="ActualHeight" ElementName="LableName"/>
+					</MultiBinding>
+				</Polyline.Height>
 				<Polyline.Stroke>
-					<SolidColorBrush Color="{Binding Stroke, Converter={StaticResource StringToColorConverter}}"/>
+					<SolidColorBrush Color="{Binding ShapeStroke, Converter={StaticResource StringToColorConverter}}"/>
 				</Polyline.Stroke>
 				<Polyline.Fill>
-					<SolidColorBrush Color="{Binding Fill, Converter={StaticResource StringToColorConverter}}"/>
+					<SolidColorBrush Color="{Binding ShapeFill, Converter={StaticResource StringToColorConverter}}"/>
 				</Polyline.Fill>
 			</Polyline>
+			
 			<TextBlock Grid.Row="1"
 					   x:Name="LableName"
 					   IsHitTestVisible="{Binding IsEditable, Converter={StaticResource InvertBooleanConverter}}"

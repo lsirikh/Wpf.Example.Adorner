@@ -57,7 +57,7 @@ namespace Wpf.AdornerProject.Sample
                 base.ConfigureContainer(builder);
                 //builder.RegisterType<CircleEntityViewModel>().SingleInstance();
                 builder.RegisterType<ShapeCollectionViewModel>().SingleInstance();
-                builder.RegisterType<ShapeProvider>().SingleInstance();
+                builder.RegisterType<SymbolProvider>().SingleInstance();
                 builder.RegisterType<PropertyControlViewModel>().SingleInstance();
 
             }

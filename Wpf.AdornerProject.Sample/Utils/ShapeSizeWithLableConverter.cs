@@ -29,7 +29,7 @@ namespace Wpf.AdornerProject.Sample.Utils
                 double totalSize = (double)values[0];
 
                 shapeSize = totalSize  - MARGIN;
-                Debug.WriteLine($"Width : {shapeSize}({totalSize} - {MARGIN})");
+                //Debug.WriteLine($"Width : {shapeSize}({totalSize} - {MARGIN})");
                 return shapeSize;
             }
             else if(parameter.ToString() == "Height")
@@ -38,7 +38,7 @@ namespace Wpf.AdornerProject.Sample.Utils
                 double elementSize = (double)values[1];
 
                 shapeSize = totalSize - elementSize - MARGIN;
-                Debug.WriteLine($"Height : {shapeSize}({totalSize} - {elementSize} - {MARGIN})");
+                //Debug.WriteLine($"Height : {shapeSize}({totalSize} - {elementSize} - {MARGIN})");
                 return shapeSize;
             }
             else

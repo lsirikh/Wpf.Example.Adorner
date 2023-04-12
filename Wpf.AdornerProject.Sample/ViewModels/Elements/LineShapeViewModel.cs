@@ -12,11 +12,11 @@ namespace Wpf.AdornerProject.Sample.ViewModels.Elements
         Email        : lsirikh@naver.com                                         
      ****************************************************************************/
 
-    public class LineShapeViewModel : ShapeViewModel
+    public class LineShapeViewModel : PolyShapeViewModel
     {
 
         #region - Ctors -
-        public LineShapeViewModel(PropertyModel model)
+        public LineShapeViewModel(ShapePropertyModel model) : base(model)
         {
             _model = model;
             _eventAggregator = IoC.Get<IEventAggregator>();

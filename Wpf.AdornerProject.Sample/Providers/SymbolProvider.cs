@@ -1,35 +1,26 @@
 ﻿using Caliburn.Micro;
-using System;
-using System.Diagnostics;
-using System.Runtime.InteropServices;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Controls.Primitives;
-using System.Windows.Media;
-using Wpf.AdornerProject.Sample.Events;
+using Ironwall.Framework.DataProviders;
 using Wpf.AdornerProject.Sample.Models;
-using Wpf.AdornerProject.Sample.ViewModels.Properties;
+using Wpf.AdornerProject.Sample.ViewModels.Elements;
 
-namespace Wpf.AdornerProject.Sample.ViewModels.Elements
+namespace Wpf.AdornerProject.Sample.Providers
 {
     /****************************************************************************
         Purpose      :                                                           
         Created By   : GHLee                                                
-        Created On   : 4/4/2023 11:17:43 AM                                                    
+        Created On   : 4/4/2023 10:46:14 AM                                                    
         Department   : SW Team                                                   
         Company      : Sensorway Co., Ltd.                                       
         Email        : lsirikh@naver.com                                         
      ****************************************************************************/
 
-    public class CircleShapeViewModel : ShapeViewModel
+    public class SymbolProvider : EntityCollectionProvider<ISymbolViewModel>
     {
 
         #region - Ctors -
-        public CircleShapeViewModel(ShapePropertyModel model)
+        public SymbolProvider()
         {
-            _model = model;
-            _eventAggregator = IoC.Get<IEventAggregator>();
+           
         }
         #endregion
         #region - Implementation of Interface -
@@ -45,6 +36,7 @@ namespace Wpf.AdornerProject.Sample.ViewModels.Elements
         #region - Properties -
         #endregion
         #region - Attributes -
+        
         #endregion
     }
 }

@@ -1,12 +1,5 @@
 ﻿using Caliburn.Micro;
-using System;
-using System.Diagnostics;
-using System.Runtime.InteropServices;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Controls.Primitives;
-using System.Windows.Media;
 using Wpf.AdornerProject.Sample.Events;
 using Wpf.AdornerProject.Sample.Models;
 using Wpf.AdornerProject.Sample.ViewModels.Properties;
@@ -16,17 +9,17 @@ namespace Wpf.AdornerProject.Sample.ViewModels.Elements
     /****************************************************************************
         Purpose      :                                                           
         Created By   : GHLee                                                
-        Created On   : 4/4/2023 11:17:43 AM                                                    
+        Created On   : 4/11/2023 8:43:03 AM                                                    
         Department   : SW Team                                                   
         Company      : Sensorway Co., Ltd.                                       
         Email        : lsirikh@naver.com                                         
      ****************************************************************************/
 
-    public class CircleShapeViewModel : ShapeViewModel
+    public class TextInfoViewModel : SymbolViewModel
     {
 
         #region - Ctors -
-        public CircleShapeViewModel(ShapePropertyModel model)
+        public TextInfoViewModel(PropertyModel model)
         {
             _model = model;
             _eventAggregator = IoC.Get<IEventAggregator>();

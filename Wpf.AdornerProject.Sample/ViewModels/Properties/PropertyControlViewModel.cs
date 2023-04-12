@@ -22,7 +22,7 @@ namespace Wpf.AdornerProject.Sample.ViewModels.Properties
      ****************************************************************************/
 
     public class PropertyControlViewModel : Screen
-        ,IHandle<EditShapeMessage>
+        , IHandle<EditShapeMessage>
     {
         #region - Ctors -
         public PropertyControlViewModel(IEventAggregator eventAggregator)
@@ -47,7 +47,7 @@ namespace Wpf.AdornerProject.Sample.ViewModels.Properties
         #region - Overrides -
         protected override Task OnActivateAsync(CancellationToken cancellationToken)
         {
-            Model = new ShapeViewModel();
+            Model = new SymbolViewModel();
             _eventAggregator.SubscribeOnUIThread(this);
             return base.OnActivateAsync(cancellationToken);
         }
@@ -60,30 +60,30 @@ namespace Wpf.AdornerProject.Sample.ViewModels.Properties
         #region - Binding Methods -
         #endregion
         #region - Processes -
-        public void InsertModel(IShapeViewModel model)
+        public void InsertModel(ISymbolViewModel model)
         {
             Model = model;
+
             Debug.WriteLine($"PropertyControlViewModel Hash : {Model.GetHashCode()} ");
             Refresh();
         }
 
-        public void ClearModel()
+        public void ClearModel(ISymbolViewModel model)
         {
-            Model = new ShapeViewModel();
-        }
+            Model = new SymbolViewModel();
 
-        
+        }
         #endregion
         #region - IHanldes -
         #endregion
         #region - Properties -
 
-        public IShapeViewModel Model
+        public ISymbolViewModel Model
         {
             get { return _model; }
-            set 
+            set
             {
-                _model = value; 
+                _model = value;
                 NotifyOfPropertyChange(() => Model);
             }
         }
@@ -97,7 +97,7 @@ namespace Wpf.AdornerProject.Sample.ViewModels.Properties
         #endregion
         #region - Attributes -
         private bool _isEnable;
-        private IShapeViewModel _model;
+        private ISymbolViewModel _model;
         private IEventAggregator _eventAggregator;
         #endregion
     }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Globalization;
 using System.Windows;
 using System.Windows.Data;
@@ -30,13 +31,16 @@ namespace Wpf.AdornerProject.Sample.Utils
                 {
                     return (Color)ColorConverter.ConvertFromString(colorString);
                 }
-                catch
+                catch(Exception e)
                 {
+                    Debug.WriteLine($"Raised Exception in {nameof(StringToColorConverter)} for {e.Message}");
+                    
                     return DependencyProperty.UnsetValue;
                 }
             }
             else
             {
+                Debug.WriteLine($"Color Converter is not string type.");
                 return (Color)ColorConverter.ConvertFromString("#FFFF0000");
             }
         }
