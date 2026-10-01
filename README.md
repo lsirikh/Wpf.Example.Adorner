@@ -1,3 +1,23 @@
+# WPF Shape Adorner Examples
+
+WPF Canvas 위 도형의 선택·이동·크기 변경·회전을 구현하는 예제 모음입니다. 기본 code-behind 실험에서 ViewModel과 동작을 분리한 구성까지 단계별 프로젝트를 포함합니다.
+
+## 살펴볼 부분
+
+- `Wpf.Example.Adorner`: 도형 크기 변경의 기본 예제
+- `Wpf.Example.OnCanvas.Adorner`: Canvas 내 도형 조작
+- `Wpf.Example.OnCavas.RotateAdorner`: 회전 처리
+- `Wpf.AdornerProject.Sample`: ViewModel, ShapeProvider와 동작 분리
+
+## 개발 환경
+
+Windows / .NET Framework 4.8 / WPF를 사용합니다. [솔루션](Wpf.Example.Adorner.sln)에서 확인할 예제를 시작 프로젝트로 지정합니다.
+
+`Wpf.AdornerProject.Sample`은 저장소 밖의 `Wpf.Libraries.AdornerDecorator`를 참조하므로 해당 프로젝트를 준비하거나 참조 경로를 맞춰야 합니다. 아래는 기존 단계별 개발 기록입니다.
+
+<details>
+<summary>기존 개발 기록 및 참고 자료</summary>
+
 # WPF Shape Element Adorner
 ## Project : Example
 
@@ -93,3 +113,5 @@
 * 기능:  
   1) Circle Shape 구현
   2) Rectangle Shape 구현
+
+</details>
